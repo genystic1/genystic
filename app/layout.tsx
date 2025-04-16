@@ -8,8 +8,8 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | GENYSTIC',
-    default: 'GENYSTIC',
+    template: '%s | GENYSTIC OFFICIAL',
+    default: 'GENYSTIC OFFICIAL',
   },
   description: 'Timeless Culture, Unmatched Style',
   // metadataBase: new URL('https://4pleague.com'),
