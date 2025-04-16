@@ -8,10 +8,10 @@ const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | 4PLeague',
-    default: '4PLeague',
+    template: '%s | GENYSTIC',
+    default: 'GENYSTIC',
   },
-  description: 'HOME OF THE LOCAL HEROES',
+  description: 'Timeless Culture, Unmatched Style',
   // metadataBase: new URL('https://4pleague.com'),
 };
 
