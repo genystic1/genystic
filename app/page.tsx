@@ -10,9 +10,9 @@ export default function HomePage() {
   return (
     <main className="isolate">
       <HeroSection />
-      <MissionStatsSection />
+      {/* <MissionStatsSection />
       <ImageSection />
-      <ValuesSection />
+      <ValuesSection /> */}
       {/*<TeamsSection />*/}
       {/*<PlayersSection />*/}
       {/*<BlogSection />*/}

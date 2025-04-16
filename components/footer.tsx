@@ -9,7 +9,7 @@ const footerNavigation = {
   social: [
     {
       name: 'TikTok',
-      href: 'https://www.tiktok.com/@4pleague',
+      href: 'https://www.tiktok.com/@genysticofficial',
       icon: (props: any) => (
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@ const footerNavigation = {
     // },
     {
       name: 'Instagram',
-      href: 'https://www.instagram.com/4pleague',
+      href: 'https://www.instagram.com/genysticofficial',
       icon: (props: any) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
           <path
@@ -116,8 +116,11 @@ export default function Footer() {
           </a>
         ))}
       </div>
+      {/* <p className="mt-10 text-center text-xs leading-5 text-gray-500">
+        &copy; 2025 Genystic Official, Inc. All rights reserved.
+      </p> */}
       <p className="mt-10 text-center text-xs leading-5 text-gray-500">
-        &copy; 2024 4PLeague, Inc. All rights reserved.
+        &copy; 2025 GENYSTIC OFFICIAL
       </p>
     </footer>
   );
