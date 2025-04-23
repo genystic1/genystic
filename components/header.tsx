@@ -13,6 +13,7 @@ const navigation = [
   { name: 'EVENT', href: '/event' },
   { name: 'MATCH', href: '/match' },
   { name: 'STATS', href: '/stats' },
+  { name: 'CONTACT US', href: '/contact' },
 ];
 
 export default function Header() {
