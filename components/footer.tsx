@@ -1,10 +1,9 @@
 const footerNavigation = {
   main: [
-    { name: 'TEAM', href: '/team' },
-    { name: 'PLAYER', href: '/player' },
-    { name: 'EVENT', href: '/event' },
-    { name: 'MATCH', href: '/match' },
-    { name: 'STATS', href: '/stats' },
+    { name: 'HOME', href: '/' },
+    { name: 'SPECIAL PRICES', href: '/artical' },
+    { name: 'CONTACT US', href: '/contact' },
+    { name: 'SHOPING NOW', href: 'https://shopee.co.id/genysticofficial' },
   ],
   social: [
     {

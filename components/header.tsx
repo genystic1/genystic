@@ -3,17 +3,20 @@
 import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Menu, X } from 'lucide-react';
+import { ShoppingBag } from 'lucide-react';
 
 import Link from 'next/link';
 import Image from 'next/image';
 
 const navigation = [
-  { name: 'TEAM', href: '/team' },
-  { name: 'PLAYER', href: '/player' },
-  { name: 'EVENT', href: '/event' },
-  { name: 'MATCH', href: '/match' },
-  { name: 'STATS', href: '/stats' },
+  // { name: 'TEAM', href: '/' },
+  // { name: 'PLAYER', href: '/' },
+  // { name: 'EVENT', href: '/' },
+  // { name: 'MATCH', href: '/' },
+  { name: 'HOME', href: '/' },
+  { name: 'SPECIAL PRICES', href: '/artical' },
   { name: 'CONTACT US', href: '/contact' },
+  { name: 'SHOPING NOW', href: 'https://shopee.co.id/genysticofficial' },
 ];
 
 export default function Header() {
@@ -49,7 +52,7 @@ export default function Header() {
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
-          {navigation.map((item) => (
+          {/* {navigation.map((item) => (
             <Link
               key={item.name}
               href={item.href}
@@ -57,6 +60,18 @@ export default function Header() {
             >
               {item.name}
             </Link>
+          ))} */}
+          {navigation.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              target={item.href.startsWith('http') ? '_blank' : '_self'}
+              rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+              className="flex items-center gap-1 text-sm font-bold text-gray-700 hover:text-indigo-600 transition"
+            >
+              {item.name === 'SHOPING NOW' && <ShoppingBag className="w-4 h-4" />}
+              {item.name}
+            </a>
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
