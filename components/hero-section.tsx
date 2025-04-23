@@ -6,11 +6,11 @@ export default function HeroSection() {
       {/* Background Illustration */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/hero/hero.jpg" // Ensure the image is available
-          alt="Laracon Illustration"
+          src="/hero/hero1.jpeg" // Ensure the image is available
+          alt="Genystic Illustration"
           layout="responsive"
-          width={1920} // Set the width according to the original image size
-          height={1080} // Set the height according to the original image size
+          width={2560} // 1920
+          height={1440} // 1080
           objectFit="cover"
           priority
         />
