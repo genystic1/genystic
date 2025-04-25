@@ -2,16 +2,16 @@ import Image from 'next/image';
 
 export default function HeroSection() {
   return (
-    <section className="relative isolate flex min-h-screen items-center overflow-hidden bg-white">
+    <section className="relative isolate flex min-h-screen items-center overflow-hidden bg-white mt-24"> {/* Menambahkan margin-top agar hero section di bawah navbar */}
       {/* Background Illustration */}
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/hero/hero2.jpeg" // Ensure the image is available
+          src="/hero/hero2.jpeg" // Pastikan gambar tersedia
           alt="Genystic Illustration"
           layout="responsive"
           width={2560} // 1920
           height={1440} // 1080
-          objectFit="full"
+          objectFit="cover" // Menggunakan cover agar gambar memenuhi seluruh area
           priority
         />
       </div>

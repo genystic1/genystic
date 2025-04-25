@@ -12,18 +12,18 @@ const navigation = [
   // { name: 'TEAM', href: '/' },
   // { name: 'PLAYER', href: '/' },
   // { name: 'EVENT', href: '/' },
-  // { name: 'MATCH', href: '/' },
+  // { name: 'MATCH', href: '/artical/1' },
   { name: 'HOME', href: '/' },
   { name: 'SPECIAL PRICES', href: '/artical' },
   { name: 'CONTACT US', href: '/contact' },
-  { name: 'SHOPING NOW', href: 'https://shopee.co.id/genysticofficial' },
+  { name: 'SHOP NOW', href: '/artical' },
 ];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
+    <header className="absolute inset-x-0 top-0 z-50 bg-blue-300"> {/* Menambahkan latar belakang biru */}
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
@@ -69,7 +69,7 @@ export default function Header() {
               rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
               className="flex items-center gap-1 text-sm font-bold text-gray-700 hover:text-indigo-600 transition"
             >
-              {item.name === 'SHOPING NOW' && <ShoppingBag className="w-4 h-4" />}
+              {item.name === 'SHOP NOW' && <ShoppingBag className="w-4 h-4" />}
               {item.name}
             </a>
           ))}
