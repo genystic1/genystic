@@ -92,7 +92,7 @@ export default function ContactPage() {
                 className="inline-flex items-center justify-center rounded-md overflow-hidden"
               >
                 <Image
-                  src="/path/2.png"
+                  src="/path/email.png"
                   alt="WhatsApp Kami"
                   width={2560}
                   height={1440}
@@ -104,8 +104,8 @@ export default function ContactPage() {
                 className="inline-flex items-center justify-center rounded-md overflow-hidden"
               >
                 <Image
-                  src="/path/2.png"
-                  alt="WhatsApp Kami"
+                  src="/path/ig.png"
+                  alt="Email Kami"
                   width={2560}
                   height={1440}
                   className="w-full h-[64px] rounded-md object-cover hover:opacity-80 transition"
@@ -116,7 +116,7 @@ export default function ContactPage() {
                 className="inline-flex items-center justify-center rounded-md overflow-hidden"
               >
                 <Image
-                  src="/path/2.png"
+                  src="/path/wa.png"
                   alt="WhatsApp Kami"
                   width={1080}
                   height={1920}
