@@ -11,7 +11,7 @@ export const generateWhatsAppLink = (cartItems: any[], cartTotal: number, select
     });
   
     message += `Total Price: $${cartTotal}\n\n`;
-    message += `Product Image: https://genystic.vercel.app/.com${selectedImage}`; // Ganti sesuai URL gambar produk yang valid
+    message += `Product Image: https://genystic.vercel.app/${selectedImage}`; // Ganti sesuai URL gambar produk yang valid
   
     const encodedMessage = encodeURIComponent(message);
   
