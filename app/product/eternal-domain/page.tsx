@@ -33,7 +33,7 @@ export default function EternalDomainPage() {
           />
         </div>
 
-        {/* Kanan: Info Produk */}
+        {/* Kanan: Info product */}
         <div className="space-y-6">
           <Image
             src="/fashion/3.png" // gambar promosi besar
@@ -91,6 +91,12 @@ export default function EternalDomainPage() {
             >
               <ShoppingCart className="h-5 w-5" />
               On Shopee
+            </Link>
+            <Link
+              href="/artical"
+              className="mt-8 text-sm text-indigo-600 hover:underline"
+            >
+              ← Back to Artical
             </Link>
           </div>
         </div>

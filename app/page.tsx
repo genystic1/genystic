@@ -5,17 +5,21 @@ import ValuesSection from '@/components/values-section';
 // import TeamsSection from "@/components/teams-section";
 // import PlayersSection from "@/components/players-section";
 // import BlogSection from "@/components/blog-section";
+import AboutSection from '@/components/about-section';
+import ArticalSection from '@/components/artical-section';
 
 export default function HomePage() {
   return (
     <main className="isolate">
       <HeroSection />
+      <AboutSection />
+      <ArticalSection />
       {/* <MissionStatsSection />
       <ImageSection />
       <ValuesSection /> */}
       {/*<TeamsSection />*/}
       {/*<PlayersSection />*/}
-      {/*<BlogSection />*/}
+      {/* <BlogSection /> */}
     </main>
   );
 }

@@ -2,38 +2,42 @@
 
 import { useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { ShoppingBag } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import Link from 'next/link';
 import Image from 'next/image';
 
 const navigation = [
-  // { name: 'TEAM', href: '/' },
-  // { name: 'PLAYER', href: '/' },
-  // { name: 'EVENT', href: '/' },
-  // { name: 'MATCH', href: '/artical/1' },
-  { name: 'HOME', href: '/' },
-  { name: 'SPECIAL PRICES', href: '/artical' },
-  { name: 'CONTACT US', href: '/contact' },
+  { name: 'ABOUT', href: '/about' },
+  {
+    name: 'COLLECTION',
+    submenu: [
+      { name: 'T-Shirt Collection', href: '/collection/tshirt' },
+      { name: 'Hoodies & Sweatshirts', href: '/collection/hoodies' },
+      { name: 'Pants & Shorts', href: '/collection/bottoms' },
+      { name: 'Outerwear', href: '/collection/outerwear' },
+      { name: 'Accessories', href: '/collection/accessories' },
+    ],
+  },
+  { name: 'GALLERY', href: '/gallery' },
+  { name: 'CONTACT', href: '/contact' },
   { name: 'SHOP NOW', href: '/artical' },
 ];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
 
   return (
     <header className="absolute inset-x-0 top-0 z-50">
-      <nav
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
-        aria-label="Global"
-      >
+      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">GENYSTIC</span>
             <Image
               className="h-8 w-auto"
-              // src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
               src="/logo/logopanjang.png"
               alt="GENYSTIC"
               height={100}
@@ -51,41 +55,66 @@ export default function Header() {
             <Menu className="h-6 w-6" aria-hidden="true" />
           </button>
         </div>
-        <div className="hidden lg:flex lg:gap-x-12">
-          {/* {navigation.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-sm font-bold leading-6 text-gray-900"
-            >
-              {item.name}
-            </Link>
-          ))} */}
-          {navigation.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              target={item.href.startsWith('http') ? '_blank' : '_self'}
-              rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-              className="flex items-center gap-1 text-sm font-bold text-gray-700 hover:text-indigo-600 transition"
-            >
-              {item.name === 'SHOP NOW' && <ShoppingBag className="w-4 h-4" />}
-              {item.name}
-            </a>
-          ))}
+
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex lg:gap-x-12 relative">
+          {navigation.map((item) =>
+            item.submenu ? (
+              <div
+                key={item.name}
+                className="relative"
+                onMouseEnter={() => setHoveredMenu(item.name)}
+                onMouseLeave={() => setHoveredMenu(null)}
+              >
+                <button
+                  className="flex items-center gap-1 text-sm font-bold text-gray-700 hover:text-indigo-600 transition"
+                >
+                  {item.name}
+                  <ChevronDown className="w-4 h-4" />
+                </button>
+
+                <AnimatePresence>
+                  {hoveredMenu === item.name && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: 10 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute left-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-gray-200"
+                    >
+                      {item.submenu.map((subitem) => (
+                        <Link
+                          key={subitem.name}
+                          href={subitem.href}
+                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        >
+                          {subitem.name}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            ) : (
+              <a
+                key={item.name}
+                href={item.href}
+                target={item.href.startsWith('http') ? '_blank' : '_self'}
+                rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                className="flex items-center gap-1 text-sm font-bold text-gray-700 hover:text-indigo-600 transition"
+              >
+                {item.name === 'SHOP NOW' && <ShoppingBag className="w-4 h-4" />}
+                {item.name}
+              </a>
+            )
+          )}
         </div>
-        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          {/*<Link href="/login" className="text-sm font-semibold leading-6 text-gray-900">*/}
-          {/*    Log in <span aria-hidden="true">&rarr;</span>*/}
-          {/*</Link>*/}
-        </div>
+
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end"></div>
       </nav>
-      <Dialog
-        as="div"
-        className="lg:hidden"
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-      >
+
+      {/* Mobile Menu */}
+      <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
         <div className="fixed inset-0 z-50" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
@@ -93,7 +122,6 @@ export default function Header() {
               <span className="sr-only">GENYSTIC</span>
               <Image
                 className="h-8 w-auto"
-                // src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                 src="/logo/logo.png"
                 alt="GENYSTIC"
                 width={20}
@@ -109,40 +137,39 @@ export default function Header() {
               <X className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
+
+          {/* Mobile Links */}
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10">
               <div className="space-y-2 py-6">
-              {navigation.map((item) => (
-                item.href.startsWith('http') ? (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-bold leading-7 text-gray-900 hover:bg-gray-50"
-                    onClick={() => setMobileMenuOpen(false)} // ✅ Tutup menu setelah klik
-                  >
-                    {item.name}
-                  </a>
-                ) : (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-bold leading-7 text-gray-900 hover:bg-gray-50"
-                    onClick={() => setMobileMenuOpen(false)} // ✅
-                  >
-                    {item.name}
-                  </Link>
-                )
-              ))}
-              </div>
-              <div className="py-6">
-                {/*<Link*/}
-                {/*    href="/login"*/}
-                {/*    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"*/}
-                {/*>*/}
-                {/*    Log in*/}
-                {/*</Link>*/}
+                {navigation.map((item) =>
+                  item.submenu ? (
+                    <div key={item.name}>
+                      <div className="text-base font-bold text-gray-900">{item.name}</div>
+                      <div className="ml-4">
+                        {item.submenu.map((subitem) => (
+                          <Link
+                            key={subitem.name}
+                            href={subitem.href}
+                            className="block py-2 text-sm text-gray-700 hover:bg-gray-50"
+                            onClick={() => setMobileMenuOpen(false)}
+                          >
+                            {subitem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base font-bold leading-7 text-gray-900 hover:bg-gray-50"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  )
+                )}
               </div>
             </div>
           </div>
