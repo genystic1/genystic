@@ -70,7 +70,7 @@ export default function TShirtCollectionPage() {
       {/* Hero */}
       <section className="mb-16 text-center">
         <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl">
-          T-Shirt Collection
+          T-SHIRT COLLECTION
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
           Timeless essentials. Unmatched comfort. Find your perfect GENYSTIC

@@ -6,6 +6,7 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import { ShoppingBag } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
+
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -29,10 +30,16 @@ const navigation = [
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [hoveredMenu, setHoveredMenu] = useState<string | null>(null);
+  const [expandedMenus, setExpandedMenus] = useState<{ [key: string]: boolean }>(
+    {},
+  );
 
   return (
-    <header className="absolute inset-x-0 top-0 z-50">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <header className="fixed top-0 z-50 h-16 w-full bg-white shadow">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        aria-label="Global"
+      >
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">GENYSTIC</span>
@@ -57,7 +64,7 @@ export default function Header() {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden lg:flex lg:gap-x-12 relative">
+        <div className="relative hidden lg:flex lg:gap-x-12">
           {navigation.map((item) =>
             item.submenu ? (
               <div
@@ -66,11 +73,9 @@ export default function Header() {
                 onMouseEnter={() => setHoveredMenu(item.name)}
                 onMouseLeave={() => setHoveredMenu(null)}
               >
-                <button
-                  className="flex items-center gap-1 text-sm font-bold text-gray-700 hover:text-indigo-600 transition"
-                >
+                <button className="flex items-center gap-1 text-sm font-bold text-gray-700 transition hover:text-indigo-600">
                   {item.name}
-                  <ChevronDown className="w-4 h-4" />
+                  <ChevronDown className="h-4 w-4" />
                 </button>
 
                 <AnimatePresence>
@@ -80,7 +85,7 @@ export default function Header() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute left-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-gray-200"
+                      className="absolute left-0 mt-2 w-40 rounded-md bg-white shadow-lg ring-1 ring-gray-200"
                     >
                       {item.submenu.map((subitem) => (
                         <Link
@@ -100,13 +105,19 @@ export default function Header() {
                 key={item.name}
                 href={item.href}
                 target={item.href.startsWith('http') ? '_blank' : '_self'}
-                rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                className="flex items-center gap-1 text-sm font-bold text-gray-700 hover:text-indigo-600 transition"
+                rel={
+                  item.href.startsWith('http')
+                    ? 'noopener noreferrer'
+                    : undefined
+                }
+                className="flex items-center gap-1 text-sm font-bold text-gray-700 transition hover:text-indigo-600"
               >
-                {item.name === 'SHOP NOW' && <ShoppingBag className="w-4 h-4" />}
+                {item.name === 'SHOP NOW' && (
+                  <ShoppingBag className="h-4 w-4" />
+                )}
                 {item.name}
               </a>
-            )
+            ),
           )}
         </div>
 
@@ -114,7 +125,12 @@ export default function Header() {
       </nav>
 
       {/* Mobile Menu */}
-      <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
+      <Dialog
+        as="div"
+        className="lg:hidden"
+        open={mobileMenuOpen}
+        onClose={setMobileMenuOpen}
+      >
         <div className="fixed inset-0 z-50" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
@@ -145,19 +161,44 @@ export default function Header() {
                 {navigation.map((item) =>
                   item.submenu ? (
                     <div key={item.name}>
-                      <div className="text-base font-bold text-gray-900">{item.name}</div>
-                      <div className="ml-4">
-                        {item.submenu.map((subitem) => (
-                          <Link
-                            key={subitem.name}
-                            href={subitem.href}
-                            className="block py-2 text-sm text-gray-700 hover:bg-gray-50"
-                            onClick={() => setMobileMenuOpen(false)}
+                      <button
+                        className="flex w-full items-center justify-between py-2 text-base font-bold text-gray-900"
+                        onClick={() =>
+                          setExpandedMenus((prev) => ({
+                            ...prev,
+                            [item.name]: !prev[item.name],
+                          }))
+                        }
+                      >
+                        {item.name}
+                        <ChevronDown
+                          className={`h-5 w-5 transform transition-transform duration-200 ${
+                            expandedMenus[item.name] ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+                      <AnimatePresence>
+                        {expandedMenus[item.name] && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="ml-4 overflow-hidden"
                           >
-                            {subitem.name}
-                          </Link>
-                        ))}
-                      </div>
+                            {item.submenu.map((subitem) => (
+                              <Link
+                                key={subitem.name}
+                                href={subitem.href}
+                                className="block py-2 text-sm text-gray-700 hover:bg-gray-50"
+                                onClick={() => setMobileMenuOpen(false)}
+                              >
+                                {subitem.name}
+                              </Link>
+                            ))}
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
                   ) : (
                     <Link
@@ -168,7 +209,7 @@ export default function Header() {
                     >
                       {item.name}
                     </Link>
-                  )
+                  ),
                 )}
               </div>
             </div>

@@ -107,7 +107,7 @@ export default function ArticalPage() {
                 <h3 className="mb-1 text-lg font-semibold text-gray-900">
                   {product.title}
                 </h3>
-                <p className="text-lg font-bold text-red-600">
+                <p className="text-lg font-bold text-orange-900">
                   {product.price}
                 </p>
                 <StarRating rating={product.rating} sold={product.sold} />

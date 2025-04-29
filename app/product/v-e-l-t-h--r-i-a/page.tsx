@@ -19,7 +19,7 @@ export default function EternalDomainPage() {
         <div className="flex flex-col items-center gap-6">
           <Image
             src="/fashion/veltheria_depan.png" // ganti sesuai gambar kaos belakang
-            alt="Kaos Veltheria  Belakang"
+            alt="Kaos Veltheria Depan"
             width={400}
             height={400}
             className="rounded-xl"

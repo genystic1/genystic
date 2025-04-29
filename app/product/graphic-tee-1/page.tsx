@@ -12,7 +12,7 @@ export default function GraphicTee1Page() {
     price: 39,
     description: 'A timeless graphic tee with modern aesthetics. Crafted with premium cotton for unmatched comfort. Perfect for any occasion, delivering timeless style with unmatched quality.',
     images: [
-      '/fashion/1.png',
+      '/fashion/1_1.png',
       '/fashion/veltheria_depan.png',
       '/fashion/veltheria_belakang.png',
     ],
