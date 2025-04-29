@@ -15,6 +15,7 @@ export default function GraphicTee1Page() {
       '/fashion/1_1.png',
       '/fashion/veltheria_depan.png',
       '/fashion/veltheria_belakang.png',
+      '/fashion/veltheria_belakang.png',
     ],
     sizes: ['S', 'M', 'L', 'XL'],
   };
