@@ -6,14 +6,14 @@ import ValuesSection from '@/components/values-section';
 // import PlayersSection from "@/components/players-section";
 // import BlogSection from "@/components/blog-section";
 import AboutSection from '@/components/about-section';
-import ArticalSection from '@/components/artical-section';
+// import CollectionSection from '@/components/collection-section';
 
 export default function HomePage() {
   return (
     <main className="isolate">
       <HeroSection />
       <AboutSection />
-      <ArticalSection />
+      {/* <CollectionSection /> */}
       {/* <MissionStatsSection />
       <ImageSection />
       <ValuesSection /> */}

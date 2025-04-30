@@ -8,10 +8,10 @@ export default function HeroSection() {
         <Image
           src="/hero/hero1.jpeg"
           alt="Genystic Illustration"
-          layout="fill"
           objectFit="cover"
           objectPosition="center"
           priority
+          fill
         />
         {/* Optional overlay */}
         <div className="absolute inset-0 bg-black/40" />
