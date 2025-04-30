@@ -1,9 +1,10 @@
 const footerNavigation = {
   main: [
-    { name: 'HOME', href: '/' },
-    { name: 'SPECIAL PRICES', href: '/artical' },
-    { name: 'CONTACT US', href: '/contact' },
-    { name: 'SHOPING NOW', href: 'https://shopee.co.id/genysticofficial' },
+    { name: 'ABOUT', href: '/about' },
+    {name: 'COLLECTION', href: 'collection'},
+    { name: 'GALLERY', href: '/gallery' },
+    { name: 'CONTACT', href: '/contact' },
+    { name: 'SHOP NOW', href: '/artical' },
   ],
   social: [
     {
