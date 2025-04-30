@@ -36,11 +36,9 @@ export default function AboutGenystic() {
           <Image
             src="/hero/hero2.jpeg"
             alt="Genystic Illustration"
-            layout="responsive"
-            width={2560}
-            height={1440}
-            objectFit="cover"
+            fill
             priority
+            className="object-cover"
           />
         </div>
       </div>
