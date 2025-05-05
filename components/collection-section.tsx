@@ -5,27 +5,27 @@ const collections = [
   {
     name: 'T-Shirt Collection',
     href: '/collection/tshirt',
-    image: '/fashion/1.png',
+    image: '/gallery/tshirt.png',
   },
   {
     name: 'Hoodies & Sweatshirts',
     href: '/collection/hoodies',
-    image: '/fashion/1.png',
+    image: '/gallery/hoodie.png',
   },
   {
     name: 'Pants & Shorts',
     href: '/collection/bottoms',
-    image: '/fashion/1.png',
+    image: '/gallery/pants.png',
   },
   {
     name: 'Outerwear',
     href: '/collection/outerwear',
-    image: '/fashion/1.png',
+    image: '/gallery/outwear.png',
   },
   {
     name: 'Accessories',
     href: '/collection/accessories',
-    image: '/fashion/1.png',
+    image: '/gallery/accesories.png',
   },
 ];
 
