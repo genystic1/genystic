@@ -19,7 +19,7 @@ const navigation = [
       { name: 'Hoodies & Sweatshirts', href: '/collection/hoodies' },
       { name: 'Pants & Shorts', href: '/collection/pants' },
       { name: 'Outerwear', href: '/collection/outerwear' },
-      { name: 'Accessories', href: '/collection/accessories' },
+      // { name: 'Accessories', href: '/collection/accessories' },
     ],
   },
   { name: 'GALLERY', href: '/gallery' },
