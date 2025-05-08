@@ -14,7 +14,7 @@ const collections = [
   },
   {
     name: 'Pants & Shorts',
-    href: '/collection/bottoms',
+    href: '/collection/pants',
     image: '/gallery/pants.png',
   },
   {

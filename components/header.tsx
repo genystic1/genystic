@@ -17,7 +17,7 @@ const navigation = [
     submenu: [
       { name: 'T-Shirt Collection', href: '/collection/tshirt' },
       { name: 'Hoodies & Sweatshirts', href: '/collection/hoodies' },
-      { name: 'Pants & Shorts', href: '/collection/bottoms' },
+      { name: 'Pants & Shorts', href: '/collection/pants' },
       { name: 'Outerwear', href: '/collection/outerwear' },
       { name: 'Accessories', href: '/collection/accessories' },
     ],
