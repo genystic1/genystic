@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-export default function ComingSoonPage() {
+export default function PantsPage() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -12,7 +12,7 @@ export default function ComingSoonPage() {
   });
 
   useEffect(() => {
-    const target = new Date('2025-07-01T00:00:00');
+    const target = new Date('2026-01-01T00:00:00');
     const interval = setInterval(() => {
       const now = new Date();
       const diff = target.getTime() - now.getTime();
@@ -49,7 +49,7 @@ export default function ComingSoonPage() {
   return (
     <main className="relative flex min-h-screen items-center justify-center bg-black">
       <Image
-        src="/gallery/hoodie.png"
+        src="/gallery/pants.png"
         alt="Background"
         fill
         className="object-cover opacity-30"
@@ -57,7 +57,7 @@ export default function ComingSoonPage() {
       <div className="absolute inset-0 bg-black bg-opacity-70 backdrop-blur-sm" />
       <div className="relative z-10 text-center text-white px-4 max-w-xl">
         <Image
-          src="/logo-white.png"
+          src="/gallery/pants.png"
           alt="GENYSTIC Logo"
           width={180}
           height={60}

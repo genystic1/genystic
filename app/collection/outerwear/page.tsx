@@ -49,7 +49,7 @@ export default function HoodiePage() {
   return (
     <main className="relative flex min-h-screen items-center justify-center bg-black">
       <Image
-        src="/gallery/hoodie.png"
+        src="/gallery/outwear.png"
         alt="Background"
         fill
         className="object-cover opacity-30"
@@ -57,7 +57,7 @@ export default function HoodiePage() {
       <div className="absolute inset-0 bg-black bg-opacity-70 backdrop-blur-sm" />
       <div className="relative z-10 text-center text-white px-4 max-w-xl">
         <Image
-          src="/gallery/hoodie.png"
+          src="/gallery/outwear.png"
           alt="GENYSTIC Logo"
           width={180}
           height={60}
